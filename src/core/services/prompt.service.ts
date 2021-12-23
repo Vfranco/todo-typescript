@@ -10,6 +10,10 @@ export class PromptServices {
         return window.prompt(PromptMessages.getTask);
     }
 
+    getUpdateTaskName(): string | null {
+        return window.prompt(PromptMessages.getUpdateTaskName);
+    }
+
     getUpdateTask(): string | null {
         return window.prompt(PromptMessages.getUpdateTask);
     }

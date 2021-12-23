@@ -1,3 +1,4 @@
+import { PromptMessages } from './../domain/messages.enum';
 import { TaskModel } from '../domain/task.model';
 import { TodoActions } from '../domain/todo.interface';
 
@@ -10,7 +11,11 @@ export class Todo implements TodoActions {
     }
 
     readAllTasks(): void {
-        this.myListasks.forEach((task, index) => console.log(`ID: ${index + 1} - ${task.taskName} | ${(!task.isComplete) ? 'No Completada': 'Completada'}`));
+        this.myListasks.forEach((task, index) => {
+            console.log(`ID: ${index + 1} - ${task.taskName} | ${(!task.isComplete) ?
+                PromptMessages.taskIncomplete:
+                PromptMessages.taskComplete}`);
+        });
     }
 
     updateTask(index: number, taskNameUpdate: string | null): void {

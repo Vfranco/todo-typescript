@@ -8,14 +8,21 @@ Reto Uno - Todo App Console
 npm install
 ```
 
+## Watch Mode
+Ejecuta este comando para generar el build y guardar los cambios que se vayan dando
+```bash
+npm run watch
+```
+
+## Importante
+Instalar Browserify
+```bash
+npm install -g browserify 
+```
+
 ## Compilar la Aplicación
 ```bash
 npm run build
-```
-
-## Watch Mode
-```bash
-npm run watch
 ```
 
 ## Recomendaciones

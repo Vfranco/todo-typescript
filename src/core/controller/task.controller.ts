@@ -1,9 +1,9 @@
 import { TaskModel } from "../domain/task.model";
-import { Todo } from "../services/todo.service";
+import { TodoActions } from "../domain/todo.interface";
 
 export class TaskController {
 
-    constructor(private todoService: Todo) { }
+    constructor(private todoService: TodoActions) { }
 
     create(task: TaskModel): void {
         return this.todoService.createTask(task);

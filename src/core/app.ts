@@ -29,7 +29,7 @@ export class App {
                 this.build();
                 break;
             case ControllerOption.update:
-                this.tasks.update(Number(this.prompt.getUpdateTask()), this.prompt.getTask());
+                this.tasks.update(Number(this.prompt.getUpdateTask()), this.prompt.getUpdateTaskName());
                 this.build();
                 break;
             case ControllerOption.delete:

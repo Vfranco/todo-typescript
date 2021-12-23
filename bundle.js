@@ -12,8 +12,8 @@
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.App = void 0;
-const messages_enum_1 = __webpack_require__(/*! ./domain/messages.enum */ "./src/core/domain/messages.enum.ts");
 const menu_1 = __webpack_require__(/*! ./domain/menu */ "./src/core/domain/menu.ts");
+const messages_enum_1 = __webpack_require__(/*! ./domain/messages.enum */ "./src/core/domain/messages.enum.ts");
 const task_controller_enum_1 = __webpack_require__(/*! ./domain/task.controller.enum */ "./src/core/domain/task.controller.enum.ts");
 class App {
     constructor(tasks, prompt, error) {
@@ -37,7 +37,7 @@ class App {
                 this.build();
                 break;
             case task_controller_enum_1.ControllerOption.update:
-                this.tasks.update(Number(this.prompt.getUpdateTask()), this.prompt.getTask());
+                this.tasks.update(Number(this.prompt.getUpdateTask()), this.prompt.getUpdateTaskName());
                 this.build();
                 break;
             case task_controller_enum_1.ControllerOption.delete:
@@ -126,10 +126,13 @@ var PromptMessages;
 (function (PromptMessages) {
     PromptMessages["select"] = "Selecciona una opci\u00F3n del menu";
     PromptMessages["getTask"] = "Ingresa el nombre de la tarea";
+    PromptMessages["getUpdateTaskName"] = "Ingresa el nuevo nombre de la tarea a actualizar";
     PromptMessages["getUpdateTask"] = "Ingresa el ID de la tarea que deseas actualizar";
     PromptMessages["getRemoveTask"] = "Ingrese el ID de la tarea que desea remover";
     PromptMessages["getChangeStatus"] = "Ingresa el ID de la tarea que deseas completar";
     PromptMessages["emptyState"] = "No existe la opci\u00F3n";
+    PromptMessages["taskComplete"] = "Completada";
+    PromptMessages["taskIncomplete"] = "No Completada";
 })(PromptMessages = exports.PromptMessages || (exports.PromptMessages = {}));
 
 
@@ -166,6 +169,9 @@ var ControllerOption;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ErrorServices = void 0;
 class ErrorServices {
+    success(message) {
+        alert(message);
+    }
     showErrorMessage(message) {
         alert(message);
     }
@@ -192,6 +198,9 @@ class PromptServices {
     getTask() {
         return window.prompt(messages_enum_1.PromptMessages.getTask);
     }
+    getUpdateTaskName() {
+        return window.prompt(messages_enum_1.PromptMessages.getUpdateTaskName);
+    }
     getUpdateTask() {
         return window.prompt(messages_enum_1.PromptMessages.getUpdateTask);
     }
@@ -211,11 +220,12 @@ exports.PromptServices = PromptServices;
 /*!*******************************************!*\
   !*** ./src/core/services/todo.service.ts ***!
   \*******************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Todo = void 0;
+const messages_enum_1 = __webpack_require__(/*! ./../domain/messages.enum */ "./src/core/domain/messages.enum.ts");
 class Todo {
     constructor() {
         this.myListasks = [];
@@ -224,7 +234,11 @@ class Todo {
         this.myListasks.push(task);
     }
     readAllTasks() {
-        this.myListasks.forEach((task, index) => console.log(`ID: ${index + 1} - ${task.taskName} | ${(!task.isComplete) ? 'No Completada' : 'Completada'}`));
+        this.myListasks.forEach((task, index) => {
+            console.log(`ID: ${index + 1} - ${task.taskName} | ${(!task.isComplete) ?
+                messages_enum_1.PromptMessages.taskIncomplete :
+                messages_enum_1.PromptMessages.taskComplete}`);
+        });
     }
     updateTask(index, taskNameUpdate) {
         this.myListasks[index - 1].taskName = taskNameUpdate;
