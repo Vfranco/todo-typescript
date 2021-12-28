@@ -1,0 +1,33 @@
+.btn {
+  $_radius: 4px;
+  $_padding: 10px 15px;
+
+  & {
+    background-color: $btn-default;
+    border: 1px solid $btn-border-default;
+    border-radius: $_radius;
+    cursor: pointer;
+    color: $btn-text-default-color;
+    padding: $_padding;
+  }
+
+  &-success {
+    background-color: var(--successColor);
+    border: 1px solid var(--successColor);
+  }
+
+  &-info {
+    background-color: var(--infoColor);
+    border: 1px solid var(--infoColor);
+  }
+
+  &-warning {
+    background-color: var(--warningColor);
+    border: 1px solid var(--warningColor);
+  }
+
+  &-danger {
+    background-color: var(--dangerColor);
+    background-color: var(--dangerColor);
+  }
+}

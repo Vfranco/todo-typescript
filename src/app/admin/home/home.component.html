@@ -1,0 +1,23 @@
+<div class="main-container">
+  <div class="todo">
+    <header-component></header-component>
+    <div class="todo__body">
+      <form-create-task (createTask)="createTask($event)"></form-create-task>
+      <div *ngIf="taskLists.length === 0; then emptyState else showTasks"></div>
+      <ng-template #emptyState>
+        <div class="todo__empty-state mt-10">No hay tareas registradas</div>
+      </ng-template>
+      <ng-template #showTasks>
+        <ng-template ngFor let-task [ngForOf]="taskLists" let-index="index">
+          <task-list-component
+            [task]="task"
+            [id]="index"
+            (emitUpdateTaskName)="updateTaskName($event)"
+            (changeStateTask)="changeStatusTask($event)"
+            (emitDeleteTask)="deleteTask($event)">
+          </task-list-component>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</div>

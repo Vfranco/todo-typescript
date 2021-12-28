@@ -1,0 +1,85 @@
+
+.todo {
+  &__header {
+    padding: 20px 15px;
+    text-align: center;
+
+    & {
+      background-color: var(--primaryColor);
+      border-radius: 4px;
+    }
+
+    h1, small {
+      font-size: $font-size-title;
+      color: whitesmoke;
+    }
+
+    small {
+      font-size: $font-size-subtitle;
+    }
+  }
+
+  &__action {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__task-item {
+    border-left: 4px solid var(--primaryColor);
+    border-right: 1px solid var(--grayColor);
+    border-top: 1px solid var(--grayColor);
+    border-bottom: 1px solid var(--grayColor);
+
+    &.success {
+      border-left: 4px solid var(--successColor);
+    }
+
+    & {
+      align-items: center;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+    }
+
+    .task-name {
+      color: var(--primaryColor);
+    }
+
+    .is-complete {
+      display: flex;
+      justify-content: space-between;
+      width: 10%;
+    }
+  }
+
+  .form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-control {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px 15px;
+      flex-grow: 1;
+    }
+  }
+
+  &__empty-state {
+    border: 1px solid #ccc;
+    padding: 18px;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  &__btn-actions {
+    width: 50px;
+    display: flex;
+    justify-content: space-around;
+  }
+}

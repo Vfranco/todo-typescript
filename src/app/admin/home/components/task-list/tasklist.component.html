@@ -1,0 +1,22 @@
+<div class="todo__task-item mt-10" [ngClass]="{'success' : task.isComplete, 'info' : !task.isComplete}">
+  <div class="checkbox ml-5">
+    <input type="checkbox" (click)="changeTask(id)" [disabled]="task.isComplete">
+    <div *ngIf="task.isComplete; else changeTaskName">
+      <p class="task-name ml-10">{{task.taskName}}</p>
+    </div>
+    <ng-template #changeTaskName>
+      <p class="task-name ml-10" (click)="toggleInputUpdate()" [hidden]="!toggleInput">{{task.taskName}}</p>
+    </ng-template>
+    <div class="d-flex justify-items-center mt-10 mb-10" *ngIf="!toggleInput">
+      <input type="text" class="form-control" [value]="task.taskName" [formControl]="newTaskName">
+      <div class="todo__btn-actions ml-5">
+        <i class="fa fa-times" (click)="toggleInput = true"></i>
+        <i class="fa fa-check" (click)="updateTaskName(id)"></i>
+      </div>
+    </div>
+  </div>
+  <div class="is-complete mr-10">
+    <i class="fa fa-check" *ngIf="task.isComplete"></i>
+    <i class="fa fa-trash" *ngIf="!task.isComplete" (click)="deleteTask(id)"></i>
+  </div>
+</div>
