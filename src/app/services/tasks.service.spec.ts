@@ -1,5 +1,6 @@
-import { TASKDATA } from './../mock/task.mock';
+
 import { TestBed } from "@angular/core/testing";
+import { TASKDATA } from "@app/core/mock/task.mock";
 import { Task } from "@app/domain/task.model";
 import { TaskService } from "./tasks.service";
 
@@ -16,8 +17,7 @@ describe('TaskService', () => {
   })
 
   it('Should add Tasks', () => {
-    const action = taskService.createTask(TASKDATA.task);
-    expect(action).toBeTrue();
+    expect(taskService.createTask(TASKDATA.task)).toBeTrue();
   });
 
   it('Should list the tasks', () => {
@@ -26,7 +26,7 @@ describe('TaskService', () => {
   })
 
   it('Should delete a task', () => {
-    taskService.tasks.push(TASKDATA.task);
+    taskService.createTask(TASKDATA.task);
     taskService.deleteTask(0);
     expect(taskService.tasks.length).toBe(0);
   })
