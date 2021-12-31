@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormControl } from "@angular/forms";
-import { TaskData } from "@app/domain/task.class";
-import { Task } from "@app/domain/task.model";
+import { TaskData } from "@app/domain/tasks/task.class";
+import { Task } from "@app/domain/tasks/task.model";
 
 @Component({
   selector: 'task-list-component',

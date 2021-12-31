@@ -1,7 +1,7 @@
 
 import { TestBed } from "@angular/core/testing";
 import { TASKDATA } from "@app/core/mock/task.mock";
-import { Task } from "@app/domain/task.model";
+import { Task } from "@app/domain/tasks/task.model";
 import { TaskService } from "./tasks.service";
 
 describe('TaskService', () => {

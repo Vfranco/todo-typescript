@@ -1,3 +1,4 @@
 export enum RepositoryProvider {
-  taskRepository = 'TaskRepository'
+  taskRepository = 'TaskRepository',
+  localStorageProvider = 'LocalStorageProvider'
 }

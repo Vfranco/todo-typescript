@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
-import { Task } from "@app/domain/task.model";
+import { Task } from "@app/domain/tasks/task.model";
 
 @Component({
   selector: 'form-create-task',
