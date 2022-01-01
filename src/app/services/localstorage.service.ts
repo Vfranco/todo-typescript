@@ -1,7 +1,9 @@
+import { Injectable } from '@angular/core';
 import { TASKDATA } from '@app/core/mock/task.mock';
 import { IRepositoryLocalStorage } from "@app/domain/localstorage/IRepositoryLocalStorage";
 import { Task } from "@app/domain/tasks/task.model";
 
+@Injectable()
 export class LocalStorageService implements IRepositoryLocalStorage {
 
   private dataFromStorage: any;

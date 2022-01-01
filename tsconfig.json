@@ -12,6 +12,9 @@
       ],
       "@domain/*": [
         "app/domain/*"
+      ],
+      "@state/*" : [
+        "app/state/*"
       ]
     },
     "outDir": "./dist/out-tsc",
@@ -38,6 +41,7 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictPropertyInitialization": false
   }
 }

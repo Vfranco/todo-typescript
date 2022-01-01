@@ -3,5 +3,6 @@ export const TASKDATA = {
     taskName: 'Mi Tarea de Prueba',
     isComplete: false
   },
-  taskKeyStorage : 'task'
+  taskKeyStorage: 'task',
+  stateName: 'task'
 }
