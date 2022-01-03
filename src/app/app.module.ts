@@ -1,3 +1,4 @@
+import { LocalStorageProvider } from './domain/localstorage/localstorage.provider';
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import { AppRoutingModule } from './app.routing';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { TasksState } from './store/tasks/task.state';
+import { LocalStorageService } from './services/localstorage.service';
 
 @NgModule({
   declarations: [

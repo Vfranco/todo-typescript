@@ -9,6 +9,11 @@ export class LocalStorageService implements IRepositoryLocalStorage {
   private dataFromStorage: any;
   private taskList: Task[] = [];
 
+  constructor() {
+    let tasks = this.getItem(TASKDATA.taskKeyStorage);
+    this.taskList = (tasks) ? tasks : [];
+  }
+
   saveItem(key: string, data: any): void {
     return window.localStorage.setItem(key, JSON.stringify(data));
   }

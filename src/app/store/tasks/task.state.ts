@@ -27,8 +27,9 @@ export class TasksState {
     return this.taskStateService.createTask(payload).pipe(
       tap((task: Task) => {
         const state = getState();
+        console.log(task);
         patchState({
-          tasks: [...state.tasks]
+          tasks: [...state.tasks, task]
         });
       })
     );
@@ -38,6 +39,7 @@ export class TasksState {
   get({ getState, setState }: StateContext<TaskStateModel>): Observable<Task[]> {
     return this.taskStateService.readAllTasks().pipe(
       tap((tasks: Task[]) => {
+        console.log(tasks);
         const state = getState();
         setState({ ...state, tasks })
       })

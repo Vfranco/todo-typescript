@@ -3,14 +3,20 @@
     <header-component></header-component>
     <div class="todo__body">
       <form-create-task (createTask)="createTask($event)"></form-create-task>
-      <div *ngFor="let task of tasks$ | async; let index = index">
-        <task-list-component
-          [task]="task"
-          [id]="index"
-          (emitUpdateTaskName)="updateTaskName($event)"
-          (changeStateTask)="changeStatusTask($event)"
-          (emitDeleteTask)="deleteTask($event)"></task-list-component>
-      </div>
+      <div *ngIf="tasksIsEmpty then emptyState else showList"></div>
+      <ng-template #emptyState>
+        <div class="todo__empty-state mt-10">No hay datos</div>
+      </ng-template>
+      <ng-template #showList>
+        <div *ngFor="let task of tasks$ | async; let index = index">
+          <task-list-component
+            [task]="task"
+            [id]="index"
+            (emitUpdateTaskName)="updateTaskName($event)"
+            (changeStateTask)="changeStatusTask($event)"
+            (emitDeleteTask)="deleteTask($event)"></task-list-component>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>
